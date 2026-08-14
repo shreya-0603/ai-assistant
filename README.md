@@ -3,6 +3,8 @@
 A conversational AI assistant with memory, tools, and web search. 
 Built with LangChain, Groq, and Streamlit.
 
+🔗 **Live Demo:** [https://ai-assistant-v11.streamlit.app/]
+
 ---
 
 ## What it does
