@@ -7,6 +7,7 @@ import json
 import datetime
 import urllib.request
 import urllib.parse
+import re
 
 GROQ_API_KEY =  st.secrets["GROQ_API_KEY"]
 
@@ -78,7 +79,9 @@ def execute_tool(tool_name: str, tool_args: dict) -> str:
         return search_web(tool_args["query"])
     else:
         return f"Unknown tool: {tool_name}"
-
+def clean_response(text: str) -> str:
+    """Remove <think>...</think> blocks from response"""
+    return re.sub(r'<think>.*?</think>', '', text, flags=re.DOTALL).strip()
 def chat(question: str, chat_history: list) -> str:
     print(f"DEBUG: chat() called with: {question}")
     print(f"DEBUG: history length: {len(chat_history)}")
@@ -131,7 +134,7 @@ RULES:
         )
         
         reply = response.choices[0].message.content
-        
+        reply = clean_response(reply) 
         if "TOOL:" in reply:
             print(f"🔧 TOOL DETECTED: {reply}")
             lines = [l.strip() for l in reply.strip().split("\n")
