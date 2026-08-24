@@ -12,7 +12,7 @@ GROQ_API_KEY =  st.secrets["GROQ_API_KEY"]
 
 llm = ChatGroq(
     api_key=GROQ_API_KEY,
-    model="llama-3.3-70b-versatile",
+    model="openai/gpt-oss-20b",
     temperature=0
 )
 
@@ -125,7 +125,7 @@ RULES:
     
     for step in range(5):
         response = groq_client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="openai/gpt-oss-20b",
             messages=messages_for_llm,
             temperature=0
         )
