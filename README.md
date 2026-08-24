@@ -1,4 +1,4 @@
-# 🤖 AI Assistant — Powered by LLaMA 3.3
+# 🤖 AI Assistant — Powered by qwen/qwen3.6-27b
 
 A conversational AI assistant with memory, tools, and web search. 
 Built with LangChain, Groq, and Streamlit.
@@ -29,7 +29,7 @@ This means it never guesses on math or dates — it always uses the right tool.
 
 ## Tech Stack
 
-- **LLM:** LLaMA 3.3 70B via Groq API
+- **LLM:** qwen/qwen3.6-27b via Groq API
 - **Framework:** LangChain
 - **Memory:** Conversation history with HumanMessage/AIMessage
 - **Tools:** Calculator, Date, Web Search (DuckDuckGo)
